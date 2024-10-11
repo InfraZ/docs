@@ -70,6 +70,11 @@ const config: Config = {
           },
         ]
       }
+    ],
+    [
+      '@docusaurus/plugin-google-tag-manager', {
+        containerId: process.env.GOOGLE_TAG_MANAGER_ID || null,
+      }
     ]
   ],
   themeConfig: {
