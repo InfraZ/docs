@@ -74,9 +74,10 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/banner.png",
     navbar: {
       title: "InfraZ Docs",
+      hideOnScroll: true,
       logo: {
         alt: "InfraZ Docs Logo",
         src: "img/logo/logo.png",
@@ -102,7 +103,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [
         {
           title: "Docs",
@@ -111,23 +112,23 @@ const config: Config = {
               label: "Introduction",
               to: "/docs/intro",
             },
+            {
+              label: "MMDB CLI",
+              to: "/docs/mmdb-cli",
+            }
           ],
         },
         {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "X (Twitter)",
+              href: "https://x.com/infraz_io",
             },
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
+              label: "Instagram",
+              href: "https://instagram.com/infraz_io",
+            }
           ],
         },
         {
@@ -135,16 +136,24 @@ const config: Config = {
           items: [
             {
               label: "Blog",
-              to: "/blog",
+              to: "https://blog.infraz.io",
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              to: "https://github.com/InfraZ",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} InfraZ | Made by humans, debugged by ducks 🦆`,
+      logo: {
+        alt: 'InfraZ Logo',
+        src: './img/logo/logo_transparent.png',
+        srcDark: './img/logo/logo_transparent_white.png',
+        href: 'https://infraz.io',
+        width: "70rem",
+        height: "70rem",
+      },
+      copyright: `Copyright © ${new Date().getFullYear()} InfraZ <br /> Made by humans, debugged by ducks 🦆`,
     },
     prism: {
       theme: prismThemes.github,
