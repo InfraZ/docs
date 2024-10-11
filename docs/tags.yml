@@ -1,0 +1,15 @@
+infraz:
+  label: InfraZ
+  permalink: /infraz
+
+cli:
+  label: CLI
+  permalink: /cli
+
+mmdb:
+  label: MMDB
+  permalink: /mmdb
+
+mmdb-cli:
+  label: 'MMDB CLI'
+  permalink: '/mmdb-cli'

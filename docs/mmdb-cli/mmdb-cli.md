@@ -3,6 +3,10 @@ sidebar_position: 1
 sidebar_label: MMDB CLI
 description: MMDB CLI
 slug: /mmdb-cli
+tags:
+  - cli
+  - mmdb
+  - mmdb-cli
 ---
 
 # MMDB CLI
