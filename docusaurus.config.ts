@@ -73,13 +73,13 @@ const config: Config = {
     ],
     [
       '@docusaurus/plugin-google-tag-manager', {
-        containerId: process.env.GOOGLE_TAG_MANAGER_ID || null,
+        containerId: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-000000',
       }
     ],
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: process.env.GOOGLE_ANALYTICS_ID || null,
+        trackingID: process.env.GOOGLE_ANALYTICS_ID || 'G-000000',
       },
     ],
   ],
