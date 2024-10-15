@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Installation
 description: MMDB CLI Installation
 tags:
@@ -9,7 +9,7 @@ tags:
   - installation
 ---
 
-# MMDB CLI Installation
+# MMDB CLI Installation 🧰
 
 MMDB CLI is a command line tool that ships as a single binary file. You can download the binary file from the [GitHub releases page](https://github.com/InfraZ/mmdb-cli/releases) and install it on your system by following the instructions below.
 

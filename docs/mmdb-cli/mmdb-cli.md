@@ -29,6 +29,13 @@ You can use MMDB CLI to:
 - Inspect MMDB files
 - And more...
 
+## Table of Contents
+
+- [Installation](./mmdb-cli/installation)
+- [Capabilities](./mmdb-cli/capabilities)
+- [Building from Source](./mmdb-cli/building-from-source)
+- [Dataset Schema](./mmdb-cli/dataset-schema)
+
 ## License
 
 We have released MMDB CLI under the Apache License 2.0. You can find the source code and more information on our [GitHub repository](https://github.com/InfraZ/mmdb-cli).

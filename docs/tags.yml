@@ -13,3 +13,15 @@ mmdb:
 mmdb-cli:
   label: 'MMDB CLI'
   permalink: '/mmdb-cli'
+
+installation:
+  label: installation
+  permalink: /installation
+
+capability:
+  label: capability
+  permalink: /capability
+
+dataset:
+  label: dataset
+  permalink: /dataset
