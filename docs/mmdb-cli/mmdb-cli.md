@@ -35,6 +35,13 @@ You can use MMDB CLI to:
 - [Capabilities](./mmdb-cli/capabilities)
 - [Building from Source](./mmdb-cli/building-from-source)
 - [Dataset Schema](./mmdb-cli/dataset-schema)
+- Commands:
+  - [Metadata](./mmdb-cli/metadata)
+  - [Inspect](./mmdb-cli/inspect)
+  - [Dump](./mmdb-cli/dump)
+  - [Generate](./mmdb-cli/generate)
+  - [Update](./mmdb-cli/update)
+
 
 ## License
 

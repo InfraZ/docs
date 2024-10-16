@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 sidebar_label: Metadata
 description: MMDB CLI Metadata Command
 tags:
