@@ -170,6 +170,15 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    announcementBar: {
+      id: 'github_star_mmdb_cli',
+      content:
+        'MMDB CLI is now available on <a target="_blank" rel="noopener noreferrer" href="https://github.com/InfraZ/mmdb-cli">GitHub</a>! ⭐️',
+        // Set background color to gray
+      backgroundColor: '#333',
+      textColor: '#fff',
+      isCloseable: false,  
+    },
   } satisfies Preset.ThemeConfig,
 };
 
