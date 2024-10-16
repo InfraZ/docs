@@ -14,7 +14,7 @@ The `generate` command is one of amazing features of MMDB CLI that allows you to
 
 :::info[Dataset Schema]
 
-The JSON dataset must follow the MMDB CLI dataset schema. For more information, see the [Dataset Schema](./dataset-schema) section.
+The JSON dataset must follow the MMDB CLI dataset schema. For more information, see the [Dataset Schema](../dataset-schema) section.
 
 :::
 
@@ -78,4 +78,4 @@ The data shown in the examples above is for demonstration purposes only and may 
 mmdb-cli generate -i GeoLite2-ASN-Custom.json -o GeoLite2-ASN-Custom.mmdb
 ```
 
-To verify the generated MMDB file, you can use the `inspect` command to view the contents of the file, for more information, see [Inspect Command](./inspect-cmd).
+To verify the generated MMDB file, you can use the `inspect` command to view the contents of the file, for more information, see [Inspect Command](./inspect).

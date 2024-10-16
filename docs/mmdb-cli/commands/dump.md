@@ -14,7 +14,7 @@ The `dump` command in MMDB CLI allows you to dump the contents of an MMDB file i
 
 :::tip
 
-The output file structure is designed to be human-readable and easy to understand. The data is organized into sections such as `data`, `metadata`, and `schema` to provide a clear overview of the MMDB file contents. for more information about the output structure, please refer to the [Dataset Schema](./05-dataset-schema.md) section.
+The output file structure is designed to be human-readable and easy to understand. The data is organized into sections such as `data`, `metadata`, and `schema` to provide a clear overview of the MMDB file contents. for more information about the output structure, please refer to the [Dataset Schema](../dataset-schema.md) section.
 
 :::
 
