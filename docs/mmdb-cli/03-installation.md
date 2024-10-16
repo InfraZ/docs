@@ -25,7 +25,7 @@ MMDB CLI is a command line tool that ships as a single binary file. You can down
 | Windows  |         amd64         |    ✅     |
 | Windows  |         arm64         |    ✅     |
 
-**Note:** If your platform is not listed above, you can build the MMDB CLI from the source code. Please refer to the [Building from Source](#building-from-source) section for more information.
+**Note:** If your platform is not listed above, you can build the MMDB CLI from the source code. Please refer to the [Building from Source](./building-from-source.md) section for more information.
 
 **Note:** We mainly test MMDB CLI on Linux (amd64) and macOS (arm64). If you encounter any issues on other platforms, please let us know by creating an issue on our GitHub repository.
 
