@@ -8,7 +8,7 @@ tags:
   - mmdb-cli
 ---
 
-# Building MMDB CLI from Source 🛠️
+# Building MMDB CLI from Source 🏗️
 
 If you want to build MMDB CLI from the source code, you can follow the instructions below.
 

@@ -29,6 +29,10 @@ const config: Config = {
     locales: ["en"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       "classic",
@@ -82,6 +86,7 @@ const config: Config = {
         trackingID: process.env.GOOGLE_ANALYTICS_ID || 'G-000000',
       },
     ],
+    '@docusaurus/theme-mermaid'
   ],
   themeConfig: {
     // Replace with your project's social card
@@ -95,22 +100,27 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
+          to: "https://infraz.io",
           label: "Home",
+          position: "left",
         },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "tutorialSidebar",
+        //   position: "left",
+        //   label: "Home",
+        // },
         {
           to: "https://blog.infraz.io",
           label: "Blog",
           position: "left",
         },
         // { to: "/blog", label: "Blog", position: "left" },
-        // {
-        //   href: "https://github.com/facebook/docusaurus",
-        //   label: "GitHub",
-        //   position: "right",
-        // },
+        {
+          to: "https://github.com/InfraZ",
+          label: "GitHub",
+          position: "right",
+        },
       ],
     },
     footer: {
@@ -126,6 +136,10 @@ const config: Config = {
             {
               label: "MMDB CLI",
               to: "/docs/mmdb-cli",
+            },
+            {
+              label: "Open GeoLocation Service",
+              to: "/docs/open-geolocation-service",
             }
           ],
         },
@@ -167,16 +181,15 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} InfraZ <br /> Made by humans, debugged by ducks 🦆`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.jettwaveLight,
       darkTheme: prismThemes.dracula,
     },
     announcementBar: {
       id: 'github_star_mmdb_cli',
       content:
         'MMDB CLI is now available on <a target="_blank" rel="noopener noreferrer" href="https://github.com/InfraZ/mmdb-cli">GitHub</a>! ⭐️',
-        // Set background color to gray
-      backgroundColor: '#333',
-      textColor: '#fff',
+      backgroundColor: '#c6eaff',
+      textColor: '#000000',
       isCloseable: false,  
     },
   } satisfies Preset.ThemeConfig,

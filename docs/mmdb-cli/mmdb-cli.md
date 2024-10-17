@@ -9,25 +9,27 @@ tags:
   - mmdb-cli
 ---
 
-# MMDB CLI
+# MMDB CLI 🛠️
 
-MMDB CLI is our first public open-source projecct that we have developed to help you to work with MMDB files. MMDB CLI is a command-line tool that allows you to generate, modify, export, inspect and ... MMDB files.
+**MMDB CLI** is our first publicly available open-source project, developed to simplify working with MMDB files. It is a command-line tool that allows you to generate, modify, export, and inspect MMDB files, among other functionalities.
+
+![InfraZ MMDB CLI Cover](/img/docs/mmdb-cli/mmdb-cli-cover.png)
 
 ## What is MMDB?
 
-The MMDB (MaxMind Database) is a popular database file format that maps IPv4 and IPv6 addresses to data records using an efficient binary search tree. For more information, you can visit the [MMDB File Format Specification](https://maxmind.github.io/MaxMind-DB/).
+The **MMDB** (MaxMind Database) is a widely used database file format designed to map IPv4 and IPv6 addresses to specific data records through an efficient binary search tree structure. For more details, please refer to the [MMDB File Format Specification](https://maxmind.github.io/MaxMind-DB/).
 
 ## Why MMDB CLI?
 
-We always wanted to have a complete and easy-to-use tool to work with MMDB files. We have developed MMDB CLI to help you to work with MMDB files in a simple and efficient way without the need to write any code.
+We’ve always wanted a comprehensive and easy-to-use tool for working with MMDB files. That’s why we developed **MMDB CLI**, to make handling MMDB files simple and efficient, without the need for coding.
 
-You can use MMDB CLI to:
+With MMDB CLI, you can:
 
 - Generate MMDB files from JSON datasets
-- Modify existing MMDB files ( Insert, Update, Delete )
-- Dump MMDB files to JSON datasets
-- Inspect MMDB files
-- And more...
+- Modify existing MMDB files (Insert, Update, Delete)
+- Dump MMDB files into JSON format
+- Inspect the contents of MMDB files
+- And much more…
 
 ## Table of Contents
 
@@ -45,4 +47,4 @@ You can use MMDB CLI to:
 
 ## License
 
-We have released MMDB CLI under the Apache License 2.0. You can find the source code and more information on our [GitHub repository](https://github.com/InfraZ/mmdb-cli).
+We have released MMDB CLI under the Apache License 2.0. You can access the source code and find more information in our [GitHub repository](https://github.com/InfraZ/mmdb-cli).

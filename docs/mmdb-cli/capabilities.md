@@ -11,13 +11,45 @@ tags:
 
 # Capabilities 🔥
 
-MMDB CLI is a powerful command-line tool that provides a wide range of capabilities to work with MMDB files. Here are some of the key features of MMDB CLI:
+MMDB CLI is a powerful command-line tool offering a wide range of features for working with MMDB files. Some of the key features include:
 
 - **Generate MMDB**: You can generate MMDB files from JSON datasets using the `generate` command.
 - **Dump MMDB**: You can dump MMDB files to JSON datasets using the `dump` command.
 - **Check MMDB Metadata**: You can check the metadata of MMDB files using the `metadata` command.
 - **Modify MMDB**: You can modify existing MMDB files by inserting, updating, or deleting records using the `update` command.
 - **Inspect MMDB**: You can inspect MMDB files to view the metadata and data records using the `inspect` command.
+
+<!---
+  completion  Generate the autocompletion script for the specified shell
+  dump        Dump MMDB data into a json dataset
+  generate    Generate a MMDB database from a JSON dataset
+  help        Help about any command
+  inspect     Inspect an IP address or CIDR in the MMDB file
+  metadata    Prints metadata of the MMDB file
+  update      Update existing MMDB file
+  version     Show version information for mmdb-cli
+
+--->
+
+```mermaid
+mindmap
+    root((MMDB CLI))
+        metadata((Metadata))
+            readMMDBMetadata(Read MMDB Metadata)
+        inspect((Inspect))
+            inspectIP(Inspect Single IP)
+            inspectMultipleIPs(Inspect Multiple IPs)
+            inspectNetworkCIDR(Inspect Network CIDR)
+        generate((Generate))
+            generateMMDB(Generate MMDB from JSON Dataset V1)
+        dump((Dump))
+            dumpDatasetV1(Dump JSON Dataset V1)
+        update((Update))
+            updateMMDBRemove(Remove Record)
+            updateMMDBInsert(Insert Record)
+            updateMMDBReplace(Replace Record)
+            updateMMDBMerge(Merge Records)
+```
 
 ## Commands
 
@@ -49,4 +81,4 @@ Use "mmdb-cli [command] --help" for more information about a command.
 
 ## Implement new features
 
-If you have any feature requests or suggestions for MMDB CLI, please feel free to create an issue on our GitHub repository. We are always looking for ways to improve MMDB CLI and make it more useful for our users.
+If you have any feature requests or suggestions for **MMDB CLI**, we encourage you to create an issue on our [GitHub repository](https://github.com/InfraZ/mmdb-cli/issues). We are continuously seeking ways to enhance MMDB CLI and make it even more valuable for our users.
