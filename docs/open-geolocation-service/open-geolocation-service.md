@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: Geolocation Service (Coming Soon)
+slug: /open-geolocation-service
 ---
 
 # Open Geolocation Service
