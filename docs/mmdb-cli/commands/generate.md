@@ -30,6 +30,7 @@ mmdb-cli generate -i <JSON_FILE_PATH> -o <MMDB_OUTPUT_PATH>
 - `-o, --output <MMDB_OUTPUT_PATH>`: The path to the MMDB file where the output will be saved. (must have a .mmdb extension)
 - `--disable-ipv4-aliasing`: Disable IPv4 aliasing for IPv6 networks. By default, IPv4 addresses are aliased to their IPv6 counterparts. Use this option to disable this feature.
 - `--include-reserved-networks`: Include reserved networks in the generated MMDB file. By default, reserved networks are excluded from the output.
+- `-v, --verbose`: Enable the verbose mode
 
 ## Examples
 

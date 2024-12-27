@@ -23,6 +23,7 @@ mmdb-cli update -i <MMDB_FILE_PATH> -o <MMDB_OUTPUT_PATH> -d <JSON_FILE_PATH>
 - `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file you want to update.
 - `-o, --output <MMDB_OUTPUT_PATH>`: The path to the updated MMDB file where the changes will be saved. (must have a .mmdb extension)
 - `-d, --data <JSON_FILE_PATH>`: The path to the JSON file that contains the data you want to insert, update, or delete in the MMDB file.
+- `-v, --verbose`: Enable the verbose mode
 
 ## JSON Update Schema
 

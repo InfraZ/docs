@@ -28,6 +28,7 @@ mmdb-cli dump -i <MMDB_FILE_PATH> -o <JSON_OUTPUT_PATH>
 
 - `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file from which you want to extract metadata.
 - `-o, --output <JSON_OUTPUT_PATH>`: The path to the JSON file where the output will be saved. (must have a .json extension)
+- `-v, --verbose`: Enable the verbose mode
 
 :::info[Supported Formats]
 
