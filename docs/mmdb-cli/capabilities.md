@@ -49,6 +49,8 @@ mindmap
             updateMMDBInsert(Insert Record)
             updateMMDBReplace(Replace Record)
             updateMMDBMerge(Merge Records)
+        verify((Verify))
+            verifyMMDB(Verify MMDB File)
 ```
 
 ## Commands
@@ -71,6 +73,7 @@ Available Commands:
   inspect     Inspect an IP address or CIDR in the MMDB file
   metadata    Prints metadata of the MMDB file
   update      Update existing MMDB file
+  verify      Verify the MMDB file
   version     Show version information for mmdb-cli
 
 Flags:

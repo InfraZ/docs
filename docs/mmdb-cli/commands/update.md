@@ -23,6 +23,8 @@ mmdb-cli update -i <MMDB_FILE_PATH> -o <MMDB_OUTPUT_PATH> -d <JSON_FILE_PATH>
 - `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file you want to update.
 - `-o, --output <MMDB_OUTPUT_PATH>`: The path to the updated MMDB file where the changes will be saved. (must have a .mmdb extension)
 - `-d, --data <JSON_FILE_PATH>`: The path to the JSON file that contains the data you want to insert, update, or delete in the MMDB file.
+- `--disable-ipv4-aliasing`: Disable IPv4 aliasing for IPv6 networks. By default, IPv4 addresses are aliased to their IPv6 counterparts. Use this option to disable this feature.
+- `--include-reserved-networks`: Include reserved networks in the generated MMDB file. By default, reserved networks are excluded from the output.
 - `-v, --verbose`: Enable the verbose mode
 
 ## JSON Update Schema
@@ -73,14 +75,18 @@ In the following example, we update the `GeoLite2-ASN.mmdb` file with new data f
         "network": "1.1.1.1/32",
         "method": "deep_merge",
         "data": {
-            "record": {
-                "organization": "Cloudflare",
-                "is_cloudflare": true,
-                "attributes": {
-                    "country": "US",
-                    "city": "San Francisco"
-                }
+            "is_cloudflare": true,
+            "attributes": {
+                "country": "US",
+                "city": "San Francisco"
             }
+        }
+    },
+    {
+        "network": "8.8.8.8/32",
+        "method": "top_level_merge",
+        "data": {
+            "is_cloudflare": true
         }
     }
 ]
@@ -100,25 +106,35 @@ The data shown in the examples above is for demonstration purposes only and may 
 
 ```json
 [
-  {
-    "query": "1.1.1.1",
-    "records": [
-      {
-        "network": "1.1.1.1/32",
-        "record": {
-          "autonomous_system_number": 13335,
-          "autonomous_system_organization": "CLOUDFLARENET",
-          "record": {
-            "attributes": {
-              "city": "San Francisco",
-              "country": "US"
-            },
-            "is_cloudflare": true,
-            "organization": "Cloudflare"
-          }
-        }
-      }
-    ]
-  }
+    {
+        "query": "1.1.1.1",
+        "records": [
+            {
+                "network": "1.1.1.1/32",
+                "record": {
+                    "attributes": {
+                        "city": "San Francisco",
+                        "country": "US"
+                    },
+                    "autonomous_system_number": 13335,
+                    "autonomous_system_organization": "CLOUDFLARENET",
+                    "is_cloudflare": true
+                }
+            }
+        ]
+    },
+    {
+        "query": "8.8.8.8",
+        "records": [
+            {
+                "network": "8.8.8.8/32",
+                "record": {
+                    "autonomous_system_number": 15169,
+                    "autonomous_system_organization": "GOOGLE",
+                    "is_cloudflare": false
+                }
+            }
+        ]
+    }
 ]
 ```
