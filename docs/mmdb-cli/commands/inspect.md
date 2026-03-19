@@ -10,7 +10,7 @@ tags:
 
 # Inspect Command 🔦
 
-The `inspect` command in MMDB CLI allows you to inspect the contents of an MMDB file. You can view the metadata, search for IP addresses, and extract specific fields from the database. This command is useful for exploring the structure of an MMDB file and understanding its data.
+The `inspect` command allows you to inspect matching records in an MMDB file for one or more IP addresses/CIDRs.
 
 :::note[Disclaimer]
 
@@ -21,13 +21,20 @@ The data shown in the examples above is for demonstration purposes only and may 
 ## Usage
 
 ```bash
-mmdb-cli inspect -i <MMDB_FILE_PATH> <IP_OR_CIDR>
+mmdb-cli inspect -i <MMDB_FILE_PATH> [OPTIONS] <IP_OR_CIDR> [MORE_IPS_OR_CIDRS...]
 ```
 
 ## Options
 
-- `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file from which you want to extract metadata.
-- `-f, --format <FORMAT>`: The output format of the metadata. The supported formats are `yaml`, `json`, and `json-pretty`. The default format is `yaml`.
+- `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file to inspect.
+- `-f, --format <FORMAT>`: Output format. Supported values: `yaml`, `json`, `json-pretty` (default: `yaml`).
+- `-j, --jsonpath <EXPRESSION>`: JSONPath filter applied to each record, for example `{[?(@.country.iso_code=="US")]}`.
+
+:::info[JSONPath Filter]
+
+The `jsonpath` option allows you to filter the records in the output file using JSONPath expressions. For more information, see [JSONPath](https://goessner.net/articles/JsonPath/).
+
+:::
 
 ## Examples Single IP
 
@@ -35,7 +42,7 @@ In the following example, we inspect the `GeoLite2-ASN.mmdb` file for the IP add
 
 ```bash
 mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1
-````
+```
 
 ### Output (YAML):
 

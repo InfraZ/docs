@@ -14,7 +14,7 @@ The `generate` command is one of amazing features of MMDB CLI that allows you to
 
 :::info[Dataset Schema]
 
-The JSON dataset must follow the MMDB CLI dataset schema. For more information, see the [Dataset Schema](../dataset-schema) section.
+The JSON dataset must use `dataset` records and `metadata` fields supported by MMDB CLI. For details, see [Dataset Schema](../dataset-schema).
 
 :::
 
@@ -44,7 +44,7 @@ The data shown in the examples above is for demonstration purposes only and may 
 
 ```json
 {
-  "data": [
+  "dataset": [
     {
       "network": "1.1.1.0/24",
       "record": {
@@ -71,7 +71,7 @@ The data shown in the examples above is for demonstration purposes only and may 
     "IPVersion": 6,
     "RecordSize": 24
   },
-  "schema": "v1"
+  "version": "v1"
 }
 ```
 

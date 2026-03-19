@@ -15,7 +15,7 @@ It is essential to verify the integrity of the MMDB file before using it in your
 ## Usage
 
 ```bash
-mmdb verify -i <MMDB_FILE_PATH>
+mmdb-cli verify -i <MMDB_FILE_PATH>
 ```
 
 ## Options
@@ -24,10 +24,10 @@ mmdb verify -i <MMDB_FILE_PATH>
 
 ## Examples
 
-In the following example, we check verify the `GeoLite2-ASN.mmdb` file:
+In the following example, we verify the `GeoLite2-ASN.mmdb` file:
 
 ```bash
-mmdb verify -i GeoLite2-ASN.mmdb
+mmdb-cli verify -i GeoLite2-ASN.mmdb
 ```
 
 ### Output:

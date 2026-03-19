@@ -10,7 +10,7 @@ tags:
 
 # Update Command 🧠
 
-The `update` command is one of the amazing core features of MMDB CLI that allows you to update existing MMDB files. You can use this command to insert, update, and delete records in an MMDB file. This command is useful for keeping your MMDB files up-to-date with the latest data and making changes to the database without recreating it from scratch.
+The `update` command updates existing MMDB files using dataset operations. It supports record removal, replacement, and merge strategies without recreating the database from scratch.
 
 ## Usage
 
@@ -22,26 +22,26 @@ mmdb-cli update -i <MMDB_FILE_PATH> -o <MMDB_OUTPUT_PATH> -d <JSON_FILE_PATH>
 
 - `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file you want to update.
 - `-o, --output <MMDB_OUTPUT_PATH>`: The path to the updated MMDB file where the changes will be saved. (must have a .mmdb extension)
-- `-d, --data <JSON_FILE_PATH>`: The path to the JSON file that contains the data you want to insert, update, or delete in the MMDB file.
+- `-d, --dataset <JSON_FILE_PATH>`: The path to the dataset JSON file that contains update operations.
 - `--disable-ipv4-aliasing`: Disable IPv4 aliasing for IPv6 networks. By default, IPv4 addresses are aliased to their IPv6 counterparts. Use this option to disable this feature.
 - `--include-reserved-networks`: Include reserved networks in the generated MMDB file. By default, reserved networks are excluded from the output.
 - `-v, --verbose`: Enable the verbose mode
 
 ## JSON Update Schema
 
-The update data in the JSON format must contain an array of objects, where each object represents a network CIDR block and the action to be performed on it and the data to be updated.
+The update data in JSON format must contain a top-level `dataset` array. Each object in that array represents one network CIDR operation.
 
 | Field   | Type   | Description                           | Required |
 | ------- | ------ | ------------------------------------- | -------- |
 | network | string | The network CIDR block to update      | Yes      |
-| method  | string | The action to perform on the network. | Yes      |
+| method  | string | The action to perform on the network. | No (defaults to `deep_merge`) |
 | data    | object | The data to insert, update, or delete | Yes      |
 
 ## Supported Methods
 
 :::info[Supported Methods]
 
-The supported methods are `remove`, `replace`, `top_level_merge`, and `deep_merge`. these methods are implemented base on Official MMDB Writer library, for more information about these methods please refer to the [MMDB Writer Documentation](https://github.com/maxmind/mmdbwriter).
+The supported methods are `remove`, `replace`, `top_level_merge`, and `deep_merge`. These methods are implemented based on the official MMDB writer library. For details, see the [MMDB Writer documentation](https://github.com/maxmind/mmdbwriter).
 
 :::
 
@@ -53,7 +53,9 @@ The supported methods are `remove`, `replace`, `top_level_merge`, and `deep_merg
 |   deep_merge    | Deep merge the new data with the existing data             |
 
 ```json
-[
+{
+  "version": "v1",
+  "dataset": [
     {
         "network": "<NETWORK_CIDR>",
         "method": "<ACTION_METHOD>",
@@ -62,7 +64,8 @@ The supported methods are `remove`, `replace`, `top_level_merge`, and `deep_merg
         }
     },
     ...
-]
+  ]
+}
 ```
 
 ## Examples
@@ -70,26 +73,29 @@ The supported methods are `remove`, `replace`, `top_level_merge`, and `deep_merg
 In the following example, we update the `GeoLite2-ASN.mmdb` file with new data from a JSON file:
 
 ```json
-[
+{
+  "version": "v1",
+  "dataset": [
     {
-        "network": "1.1.1.1/32",
-        "method": "deep_merge",
-        "data": {
-            "is_cloudflare": true,
-            "attributes": {
-                "country": "US",
-                "city": "San Francisco"
-            }
+      "network": "1.1.1.1/32",
+      "method": "deep_merge",
+      "data": {
+        "is_cloudflare": true,
+        "attributes": {
+          "country": "US",
+          "city": "San Francisco"
         }
+      }
     },
     {
-        "network": "8.8.8.8/32",
-        "method": "top_level_merge",
-        "data": {
-            "is_cloudflare": true
-        }
+      "network": "8.8.8.8/32",
+      "method": "top_level_merge",
+      "data": {
+        "is_google": true
+      }
     }
-]
+  ]
+}
 ```
 
 ```bash
@@ -131,7 +137,7 @@ The data shown in the examples above is for demonstration purposes only and may 
                 "record": {
                     "autonomous_system_number": 15169,
                     "autonomous_system_organization": "GOOGLE",
-                    "is_cloudflare": false
+                    "is_google": true
                 }
             }
         ]

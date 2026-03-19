@@ -14,8 +14,28 @@ The MMDB CLI provides several commands to interact with MaxMind DB files. You ca
 
 We will explore each of these commands in detail in the following sections. Let's get started! 🚀
 
+You can use `--help` flag to get more information about available commands at any time:
+
+```bash
+mmdb-cli --help
+```
+
+## Core Commands
+
 - [Metadata](./metadata): View the metadata of an MMDB file.
 - [Inspect](./inspect): Inspect the contents of an MMDB file.
-- [Dump](./dump): Dump the contents of an MMDB file in a human-readable format.
+- [Dump](./dump): Export the contents of an MMDB file into a JSON dataset.
 - [Generate](./generate): Generate an MMDB file from a JSON dataset.
 - [Update](./update): Update an existing MMDB file with new data.
+- [Verify](./verify): Verify that an MMDB file is valid.
+
+## Built-in Utility Commands
+
+- `completion`: Generate shell autocompletion scripts (`bash`, `zsh`, `fish`, `powershell`).
+- `help`: Show help for any command.
+
+### `completion` Usage
+
+```bash
+mmdb-cli completion [bash|zsh|fish|powershell]
+```

@@ -10,7 +10,7 @@ tags:
 
 # Metadata Command 🪨
 
-One of the most important features of MMDB CLI is the ability to extract metadata from an MMDB file. The metadata contains information about the MMDB file, such as the database type, languages, binary format version, build epoch, IP version, node count, and record size. You can use the `metadata` command to extract this information from an MMDB file.
+The `metadata` command prints MMDB metadata including database type, description, languages, IP version, node count, and record size.
 
 :::note[Disclaimer]
 
@@ -21,20 +21,20 @@ The data shown in the examples above is for demonstration purposes only and may 
 ## Usage
 
 ```bash
-mmdb metadata -i <MMDB_FILE_PATH>
+mmdb-cli metadata -i <MMDB_FILE_PATH> [-f <FORMAT>]
 ```
 
 ## Options
 
-- `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file from which you want to extract metadata.
-- `-f, --format <FORMAT>`: The output format of the metadata. The supported formats are `yaml`, `json`, and `json-pretty`. The default format is `yaml`.
+- `-i, --input <MMDB_FILE_PATH>`: Path to the MMDB file.
+- `-f, --format <FORMAT>`: Output format. Supported values: `yaml`, `json`, `json-pretty` (default: `yaml`).
 
 ## Examples
 
 In the following example, we extract metadata from the `GeoLite2-ASN.mmdb` file in YAML format:
 
 ```bash
-mmdb metadata -i GeoLite2-ASN.mmdb
+mmdb-cli metadata -i GeoLite2-ASN.mmdb
 ```
 
 ### Output (YAML):
