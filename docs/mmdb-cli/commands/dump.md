@@ -51,7 +51,7 @@ In the following example, we dump the contents of the `GeoLite2-ASN.mmdb` file t
 mmdb-cli dump -i GeoLite2-ASN.mmdb -o GeoLite2-ASN.json
 ```
 
-### Output (JSON):
+### Output (JSON)
 
 :::note[Disclaimer]
 
