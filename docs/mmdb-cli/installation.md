@@ -24,7 +24,7 @@ MMDB CLI is a command line tool that ships as a single binary file. You can down
 | Windows  |         amd64         |    ✅     |
 | Windows  |         arm64         |    ✅     |
 
-**Note:** If your platform is not listed above, you can build the MMDB CLI from the source code. Please refer to the [Building from Source](./building-from-source.md) section for more information.
+**Note:** If your platform is not listed above, you can build MMDB CLI from source. See [Building from Source](./building-from-source).
 
 **Note:** We mainly test MMDB CLI on Linux (amd64) and macOS (arm64). If you encounter any issues on other platforms, please let us know by creating an issue on our GitHub repository.
 
@@ -47,7 +47,7 @@ We currently provide `deb`, `rpm`, and `apk` packages for Linux distributions th
 
 ### Debian and Ubuntu
 
-1. Check the latest MMDB CLI `rpm` package version and architecture
+1. Check the latest MMDB CLI version and architecture
 ```bash
 export MMDB_CLI_VERSION=$(curl -s https://api.github.com/repos/InfraZ/mmdb-cli/releases/latest | grep tag_name | cut -d '"' -f 4 | sed 's/v//') 
 export ARCH=$(dpkg --print-architecture)
@@ -70,14 +70,15 @@ mmdb-cli version
 
 ### RH-based (RHEL, Fedora, CentOS, Rocky Linux, AlmaLinux)
 
-1. Check the latest MMDB CLI `rpm` package version and architecture
+1. Check the latest MMDB CLI version
 ```bash
 export MMDB_CLI_VERSION=$(curl -s https://api.github.com/repos/InfraZ/mmdb-cli/releases/latest | grep tag_name | cut -d '"' -f 4 | sed 's/v//')
 ```
 
-2. Install `.rpm` package using `yum` or `dnf`
+2. Install the `.rpm` package using `yum` or `dnf`
 ```bash
-dnf install "https://github.com/InfraZ/mmdb-cli/releases/download/v${MMDB_CLI_VERSION}/mmdb-cli_${MMDB_CLI_VERSION}_linux_amd64.rpm"
+ARCH=$(uname -m); [ "$ARCH" = "x86_64" ] && ARCH=amd64; [ "$ARCH" = "aarch64" ] && ARCH=arm64
+dnf install "https://github.com/InfraZ/mmdb-cli/releases/download/v${MMDB_CLI_VERSION}/mmdb-cli_${MMDB_CLI_VERSION}_linux_${ARCH}.rpm"
 ```
 
 3. Verify the installation by running the following command.
@@ -87,22 +88,23 @@ mmdb-cli version
 
 ### Alpine Linux
 
-1. Check the latest MMDB CLI `apk` package version and architecture
+1. Check the latest MMDB CLI version
 ```bash
 export MMDB_CLI_VERSION=$(curl -s https://api.github.com/repos/InfraZ/mmdb-cli/releases/latest | grep tag_name | cut -d '"' -f 4 | sed 's/v//')
 ```
 
 2. Download the `.apk` package using `curl` or `wget`
 ```bash
-curl -LO "https://github.com/InfraZ/mmdb-cli/releases/download/v${MMDB_CLI_VERSION}/mmdb-cli_${MMDB_CLI_VERSION}_linux_amd64.apk"
+ARCH=$(uname -m); [ "$ARCH" = "x86_64" ] && ARCH=amd64; [ "$ARCH" = "aarch64" ] && ARCH=arm64
+curl -LO "https://github.com/InfraZ/mmdb-cli/releases/download/v${MMDB_CLI_VERSION}/mmdb-cli_${MMDB_CLI_VERSION}_linux_${ARCH}.apk"
 ```
 
-2. Install `.apk` package using `apk`
+3. Install `.apk` package using `apk`
 ```bash
-apk add --allow-untrusted ./mmdb-cli_${MMDB_CLI_VERSION}_linux_amd64.apk
+apk add --allow-untrusted ./mmdb-cli_${MMDB_CLI_VERSION}_linux_${ARCH}.apk
 ```
 
-3. Verify the installation by running the following command.
+4. Verify the installation by running the following command.
 ```bash
 mmdb-cli version
 ```
@@ -139,5 +141,5 @@ sudo mv mmdb-cli /usr/local/bin/
 5. Verify the installation by running the following command.
 
 ```bash
-mmdb-cli --version
+mmdb-cli version
 ```

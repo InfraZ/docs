@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: MMDB CLI
-description: MMDB CLI
+description: InfraZ MMDB CLI
 slug: /mmdb-cli
 tags:
   - cli
@@ -21,15 +21,20 @@ The **MMDB** (MaxMind Database) is a widely used database file format designed t
 
 ## Why MMDB CLI?
 
+## Why MMDB CLI?
+
 We’ve always wanted a comprehensive and easy-to-use tool for working with MMDB files. That’s why we developed **MMDB CLI**, to make handling MMDB files simple and efficient, without the need for coding.
 
 With MMDB CLI, you can:
 
-- Generate MMDB files from JSON datasets
-- Modify existing MMDB files (Insert, Update, Delete)
-- Dump MMDB files into JSON format
-- Inspect the contents of MMDB files
-- And much more…
+- Inspect records for one or more IPs/CIDRs
+- Print database metadata in YAML or JSON
+- Dump a full database into a JSON dataset
+- Generate an MMDB file from a JSON dataset
+- Update an existing MMDB file with merge/replace/remove methods
+- Verify database integrity
+
+The CLI binary name used throughout this documentation is `mmdb-cli`.
 
 ## Table of Contents
 
@@ -37,13 +42,13 @@ With MMDB CLI, you can:
 - [Capabilities](./mmdb-cli/capabilities)
 - [Building from Source](./mmdb-cli/building-from-source)
 - [Dataset Schema](./mmdb-cli/dataset-schema)
-- Commands:
+- [Commands](./mmdb-cli/commands/commands)
   - [Metadata](./mmdb-cli/commands/metadata)
   - [Inspect](./mmdb-cli/commands/inspect)
   - [Dump](./mmdb-cli/commands/dump)
   - [Generate](./mmdb-cli/commands/generate)
   - [Update](./mmdb-cli/commands/update)
-
+  - [Verify](./mmdb-cli/commands/verify)
 
 ## License
 

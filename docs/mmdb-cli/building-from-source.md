@@ -42,7 +42,7 @@ go build -o mmdb-cli .
 You can verify the binary by running the following command.
 
 ```bash
-./mmdb-cli --version
+./mmdb-cli version
 ```
 
 **Note:** If you encounter any issues during the build process, please let us know by creating an issue on our GitHub repository.
