@@ -42,7 +42,7 @@ The CLI binary name used throughout this documentation is `mmdb-cli`.
 - [Capabilities](./mmdb-cli/capabilities)
 - [Building from Source](./mmdb-cli/building-from-source)
 - [Dataset Schema](./mmdb-cli/dataset-schema)
-- [Commands](./mmdb-cli/commands/commands)
+- [Commands](./mmdb-cli/commands)
   - [Metadata](./mmdb-cli/commands/metadata)
   - [Inspect](./mmdb-cli/commands/inspect)
   - [Dump](./mmdb-cli/commands/dump)
