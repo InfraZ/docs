@@ -21,8 +21,6 @@ The **MMDB** (MaxMind Database) is a widely used database file format designed t
 
 ## Why MMDB CLI?
 
-## Why MMDB CLI?
-
 We’ve always wanted a comprehensive and easy-to-use tool for working with MMDB files. That’s why we developed **MMDB CLI**, to make handling MMDB files simple and efficient, without the need for coding.
 
 With MMDB CLI, you can:
@@ -42,7 +40,7 @@ The CLI binary name used throughout this documentation is `mmdb-cli`.
 - [Capabilities](./mmdb-cli/capabilities)
 - [Building from Source](./mmdb-cli/building-from-source)
 - [Dataset Schema](./mmdb-cli/dataset-schema)
-- [Commands](./mmdb-cli/commands)
+- Commands:
   - [Metadata](./mmdb-cli/commands/metadata)
   - [Inspect](./mmdb-cli/commands/inspect)
   - [Dump](./mmdb-cli/commands/dump)

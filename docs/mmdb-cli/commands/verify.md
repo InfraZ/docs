@@ -30,7 +30,7 @@ In the following example, we verify the `GeoLite2-ASN.mmdb` file:
 mmdb-cli verify -i GeoLite2-ASN.mmdb
 ```
 
-### Output:
+### Output
 
 ```text
 The MMDB file is valid

@@ -44,7 +44,7 @@ In the following example, we inspect the `GeoLite2-ASN.mmdb` file for the IP add
 mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1
 ```
 
-### Output (YAML):
+### Output (YAML)
 
 ```yaml
 - query: 1.1.1.1
@@ -55,7 +55,7 @@ mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1
         autonomous_system_organization: CLOUDFLARENET
 ```
 
-### Output (JSON):
+### Output (JSON)
 
 ```json
 [
@@ -82,7 +82,7 @@ In the following example, we inspect the `GeoLite2-ASN.mmdb` file for the CIDR r
 mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1/20
 ```
 
-### Output (YAML):
+### Output YAML (CIDR Range)
 
 ```yaml
 - query: 1.1.1.1/20
@@ -97,7 +97,7 @@ mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1/20
         autonomous_system_organization: China Unicom
 ```
 
-### Output (JSON):
+### Output JSON (CIDR Range)
 
 ```json
 [
@@ -131,7 +131,7 @@ In the following example, we inspect the `GeoLite2-ASN.mmdb` file for multiple I
 mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.0.0.1 1.1.1.1
 ```
 
-### Output (YAML):
+### Output YAML
 
 ```yaml
 - query: 1.0.0.1
@@ -148,7 +148,7 @@ mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.0.0.1 1.1.1.1
         autonomous_system_organization: CLOUDFLARENET
 ```
 
-### Output (JSON):
+### Output JSON
 
 ```json
 [
