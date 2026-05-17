@@ -7,6 +7,7 @@ tags:
   - cli
   - mmdb
   - mmdb-cli
+  - geoip
 ---
 
 # MMDB CLI 🛠️
@@ -25,9 +26,9 @@ We’ve always wanted a comprehensive and easy-to-use tool for working with MMDB
 
 With MMDB CLI, you can:
 
-- Inspect records for one or more IPs/CIDRs
-- Print database metadata in YAML or JSON
-- Dump a full database into a JSON dataset
+- Inspect records for one or more IPs/CIDRs (YAML, JSON, XML, CSV, or JSONPath templates)
+- Print database metadata in YAML, JSON, XML, or CSV
+- Dump a full database into a JSON dataset, or export filtered/custom output via JSONPath templates
 - Generate an MMDB file from a JSON dataset
 - Update an existing MMDB file with merge/replace/remove methods
 - Verify database integrity
@@ -40,6 +41,8 @@ The CLI binary name used throughout this documentation is `mmdb-cli`.
 - [Capabilities](./mmdb-cli/capabilities)
 - [Building from Source](./mmdb-cli/building-from-source)
 - [Dataset Schema](./mmdb-cli/dataset-schema)
+- Guides:
+  - [JSONPath output format and filtering](./mmdb-cli/guides/jsonpath)
 - Commands:
   - [Metadata](./mmdb-cli/commands/metadata)
   - [Inspect](./mmdb-cli/commands/inspect)

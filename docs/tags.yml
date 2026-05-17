@@ -14,6 +14,10 @@ mmdb-cli:
   label: 'MMDB CLI'
   permalink: '/mmdb-cli'
 
+geoip:
+  label: GeoIP
+  permalink: /geoip
+
 installation:
   label: installation
   permalink: /installation

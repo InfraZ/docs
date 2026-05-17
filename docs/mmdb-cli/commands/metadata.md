@@ -27,7 +27,7 @@ mmdb-cli metadata -i <MMDB_FILE_PATH> [-f <FORMAT>]
 ## Options
 
 - `-i, --input <MMDB_FILE_PATH>`: Path to the MMDB file.
-- `-f, --format <FORMAT>`: Output format. Supported values: `yaml`, `json`, `json-pretty` (default: `yaml`).
+- `-f, --format <FORMAT>`: Output format. Supported values: `yaml`, `json`, `json-pretty`, `xml`, `csv` (default: `yaml`).
 
 ## Examples
 
@@ -53,7 +53,11 @@ node_count: 1056663
 record_size: 24
 ```
 
-### Output (JSON):
+### Output (JSON)
+
+```bash
+mmdb-cli metadata -i GeoLite2-ASN.mmdb -f json
+```
 
 ```json
 {
@@ -71,4 +75,11 @@ record_size: 24
     "node_count": 1056663,
     "record_size": 24
 }
+```
+
+### Output (XML / CSV)
+
+```bash
+mmdb-cli metadata -i GeoLite2-ASN.mmdb -f xml
+mmdb-cli metadata -i GeoLite2-ASN.mmdb -f csv
 ```

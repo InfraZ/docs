@@ -6,6 +6,7 @@ tags:
   - cli
   - mmdb
   - mmdb-cli
+  - geoip
   - capability
 ---
 
@@ -14,10 +15,11 @@ tags:
 MMDB CLI is a powerful command-line tool offering a wide range of features for working with MMDB files. Some of the key features include:
 
 - **Generate MMDB**: You can generate MMDB files from JSON datasets using the `generate` command.
-- **Dump MMDB**: You can dump MMDB files to JSON datasets using the `dump` command.
-- **Check MMDB Metadata**: You can check the metadata of MMDB files using the `metadata` command.
+- **Dump MMDB**: Export a database to JSON (`dump -f json`) or custom text via the [`jsonpath` output format](./guides/jsonpath).
+- **Check MMDB Metadata**: Print metadata in YAML, JSON, XML, or CSV using the `metadata` command.
 - **Modify MMDB**: You can modify existing MMDB files by inserting, updating, or deleting records using the `update` command.
-- **Inspect MMDB**: You can inspect MMDB files to view the metadata and data records using the `inspect` command.
+- **Inspect MMDB**: Look up IPs/CIDRs (YAML, JSON, XML, CSV, or [`jsonpath` output format](./guides/jsonpath)).
+- **Verify MMDB**: Validate database integrity with the `verify` command.
 
 <!---
   completion  Generate the autocompletion script for the specified shell
@@ -40,10 +42,12 @@ mindmap
             inspectIP(Inspect Single IP)
             inspectMultipleIPs(Inspect Multiple IPs)
             inspectNetworkCIDR(Inspect Network CIDR)
+            inspectFormats(Output formats incl. jsonpath)
         generate((Generate))
             generateMMDB(Generate MMDB from JSON Dataset V1)
         dump((Dump))
             dumpDatasetV1(Dump JSON Dataset V1)
+            dumpFormats(JSON export and jsonpath format)
         update((Update))
             updateMMDBRemove(Remove Record)
             updateMMDBInsert(Insert Record)

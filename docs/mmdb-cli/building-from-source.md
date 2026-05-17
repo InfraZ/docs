@@ -15,7 +15,7 @@ If you want to build MMDB CLI from the source code, you can follow the instructi
 ## Prerequisites
 
 - [Git](https://git-scm.com/downloads)
-- [Go](https://golang.org/dl/) (version 1.23 or higher)
+- [Go](https://golang.org/dl/) (version 1.26 or higher)
 
 ## Clone the Repository
 
