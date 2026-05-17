@@ -23,8 +23,8 @@ mmdb-cli --help
 ## Core Commands
 
 - [Metadata](./metadata): View the metadata of an MMDB file.
-- [Inspect](./inspect): Inspect the contents of an MMDB file.
-- [Dump](./dump): Export the contents of an MMDB file into a JSON dataset.
+- [Inspect](./inspect): Look up IPs/CIDRs in an MMDB file.
+- [Dump](./dump): Export a database to a file.
 - [Generate](./generate): Generate an MMDB file from a JSON dataset.
 - [Update](./update): Update an existing MMDB file with new data.
 - [Verify](./verify): Verify that an MMDB file is valid.

@@ -10,7 +10,7 @@ tags:
 
 # Inspect Command 🔦
 
-The `inspect` command allows you to inspect matching records in an MMDB file for one or more IP addresses/CIDRs.
+The `inspect` command looks up one or more IP addresses or CIDR prefixes in an MMDB file and prints every matching network and its record.
 
 :::note[Disclaimer]
 
@@ -26,19 +26,23 @@ mmdb-cli inspect -i <MMDB_FILE_PATH> [OPTIONS] <IP_OR_CIDR> [MORE_IPS_OR_CIDRS..
 
 ## Options
 
-- `-i, --input <MMDB_FILE_PATH>`: The path to the MMDB file to inspect.
-- `-f, --format <FORMAT>`: Output format. Supported values: `yaml`, `json`, `json-pretty` (default: `yaml`).
-- `-j, --jsonpath <EXPRESSION>`: JSONPath filter applied to each record, for example `{[?(@.country.iso_code=="US")]}`.
+| Flag | Description |
+| :--- | :---------- |
+| `-i, --input <PATH>` | Path to the MMDB file (**required**). |
+| `-f, --format <FORMAT>` | Output format (see below). Default: `yaml`. |
 
-:::info[JSONPath Filter]
+### Output formats (`-f`)
 
-The `jsonpath` option allows you to filter the records in the output file using JSONPath expressions. For more information, see [JSONPath](https://goessner.net/articles/JsonPath/).
+| Format | Description |
+| :----- | :---------- |
+| `yaml` | Human-readable YAML (default). |
+| `json` | Compact JSON. |
+| `json-pretty` | Indented JSON. |
+| `xml` | XML with a `<root>` wrapper. |
+| `csv` | Tabular CSV (flattened fields). |
+| `jsonpath={TEMPLATE}` | Template output to stdout (see [JSONPath output format](../guides/jsonpath)). |
 
-:::
-
-## Examples Single IP
-
-In the following example, we inspect the `GeoLite2-ASN.mmdb` file for the IP address:
+## Example — Single IP
 
 ```bash
 mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1
@@ -57,6 +61,10 @@ mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1
 
 ### Output (JSON)
 
+```bash
+mmdb-cli inspect -i GeoLite2-ASN.mmdb -f json 1.1.1.1
+```
+
 ```json
 [
     {
@@ -74,13 +82,20 @@ mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1
 ]
 ```
 
-## Examples CIDR Range
-
-In the following example, we inspect the `GeoLite2-ASN.mmdb` file for the CIDR range:
+### Output (XML / CSV)
 
 ```bash
-mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1/20
+mmdb-cli inspect -i GeoLite2-ASN.mmdb -f xml 1.1.1.1
+mmdb-cli inspect -i GeoLite2-ASN.mmdb -f csv 1.1.1.1
 ```
+
+## Example — CIDR Range
+
+```bash
+mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.0/20
+```
+
+Returns every network contained in the range, each with its record.
 
 ### Output YAML (CIDR Range)
 
@@ -123,13 +138,15 @@ mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.1.1.1/20
 ]
 ```
 
-## Examples Multiple IPs
+## Example — Multiple IPs
 
 In the following example, we inspect the `GeoLite2-ASN.mmdb` file for multiple IP addresses:
 
 ```bash
 mmdb-cli inspect -i GeoLite2-ASN.mmdb 1.0.0.1 1.1.1.1
 ```
+
+Each query appears as a separate top-level entry with its own `query` and `records` list.
 
 ### Output YAML
 

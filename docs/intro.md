@@ -19,4 +19,4 @@ See something that needs to be updated or added? We'd love to receive your pull 
 We will publish our contribution guidelines soon, but in the meantime, feel free to reach out to us.
 
 ## License 📜
-We generally release our projects under the MIT and Apache 2.0 licenses. You can find more information about the license of each project in the project's repository.
+We generally release our projects under the **MIT** and **Apache 2.0** licenses. You can find more information about the license of each project in the project's repository.
