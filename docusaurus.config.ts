@@ -91,6 +91,10 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "img/banner.png",
+    colorMode: {
+      defaultMode: "dark",
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: "InfraZ Docs",
       hideOnScroll: true,
