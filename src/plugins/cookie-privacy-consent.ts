@@ -11,10 +11,18 @@ import type { Plugin } from "@docusaurus/types";
  *
  * The cookie banner (src/theme/Root.tsx) flips consent to "granted" on opt-in.
  *
- * Note: this only sends Consent Mode signals — the GTM container itself must
- * have Consent Mode enabled and gate the GA tag on `analytics_storage`.
+ * Google Analytics lives INSIDE the GTM container, not here — add the GA4
+ * Configuration tag in the GTM web UI and set its consent settings to require
+ * `analytics_storage`. We deliberately do not load gtag directly, so there is
+ * no GOOGLE_ANALYTICS_ID env var: the GA measurement ID is configured in GTM.
+ *
+ * This file only sends Consent Mode signals. Tags stay gated ONLY IF the GTM
+ * container has Consent Mode enabled — without that, this code does nothing on
+ * its own. The `gtm.js` loader is expected to load pre-consent; what must not
+ * happen before opt-in is GA cookies (`_ga`) or `collect` pings.
  */
 export default function cookiePrivacyConsentPlugin(): Plugin {
+  // Only the GTM container ID is needed; GA is configured inside the container.
   const containerId = process.env.GOOGLE_TAG_MANAGER_ID || "GTM-000000";
 
   return {
