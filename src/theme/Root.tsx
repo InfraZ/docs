@@ -57,9 +57,9 @@ function CookieBanner() {
       <p className={styles.text}>
         We use cookies for analytics to understand how the docs are used. You
         can accept or decline — declining keeps only essential cookies.{" "}
-        <a href="https://infraz.io/privacy" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://infraz.io/privacy" target="_blank" rel="noopener noreferrer">
           Learn more
-        </a>
+        </a> */}
         .
       </p>
       <div className={styles.actions}>
