@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import cookiePrivacyConsentPlugin from "./src/plugins/cookie-privacy-consent";
 
 const config: Config = {
   title: "InfraZ Docs",
@@ -75,17 +76,10 @@ const config: Config = {
         ]
       }
     ],
-    [
-      '@docusaurus/plugin-google-tag-manager', {
-        containerId: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-000000',
-      }
-    ],
-    [
-      '@docusaurus/plugin-google-gtag',
-      {
-        trackingID: process.env.GOOGLE_ANALYTICS_ID || 'G-000000',
-      },
-    ],
+    // Google Tag Manager + Consent Mode v2, gated behind cookie consent.
+    // See src/plugins/cookie-privacy-consent.ts for why we inject this
+    // ourselves rather than using the official GTM/gtag plugins.
+    cookiePrivacyConsentPlugin,
     '@docusaurus/theme-mermaid'
   ],
   themeConfig: {
