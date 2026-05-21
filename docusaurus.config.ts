@@ -33,6 +33,33 @@ const config: Config = {
     mermaid: true,
   },
 
+  // Initialize Google Consent Mode v2 with everything denied BEFORE the GTM
+  // container loads. The cookie banner (src/theme/Root.tsx) flips these to
+  // "granted" once the user opts in, so no analytics/ads cookies are set
+  // until consent is given.
+  headTags: [
+    {
+      tagName: "script",
+      attributes: {},
+      innerHTML: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        var consent = (function () {
+          try { return localStorage.getItem('cookie-consent'); } catch (e) { return null; }
+        })();
+        gtag('consent', 'default', {
+          ad_storage: consent === 'granted' ? 'granted' : 'denied',
+          ad_user_data: consent === 'granted' ? 'granted' : 'denied',
+          ad_personalization: consent === 'granted' ? 'granted' : 'denied',
+          analytics_storage: consent === 'granted' ? 'granted' : 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500,
+        });
+      `,
+    },
+  ],
+
   presets: [
     [
       "classic",
@@ -80,12 +107,9 @@ const config: Config = {
         containerId: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-000000',
       }
     ],
-    [
-      '@docusaurus/plugin-google-gtag',
-      {
-        trackingID: process.env.GOOGLE_ANALYTICS_ID || 'G-000000',
-      },
-    ],
+    // Google Analytics runs through the GTM container above so it stays
+    // gated behind cookie consent (see src/theme/Root.tsx). Do not re-add
+    // @docusaurus/plugin-google-gtag — it fires independently of consent.
     '@docusaurus/theme-mermaid'
   ],
   themeConfig: {
