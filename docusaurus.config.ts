@@ -40,6 +40,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          sidebarCollapsed: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -181,6 +182,11 @@ const config: Config = {
     prism: {
       theme: prismThemes.jettwaveLight,
       darkTheme: prismThemes.dracula,
+    },
+    docs: {
+      sidebar: {
+        autoCollapseCategories: false,
+      },
     },
     announcementBar: {
       id: 'github_star_mmdb_cli',
