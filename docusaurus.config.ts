@@ -1,7 +1,10 @@
-import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import cookiePrivacyConsentPlugin from "./src/plugins/cookie-privacy-consent";
+import {
+  prismInfrazDark,
+  prismInfrazLight,
+} from "./src/theme/prism-infraz";
 
 const config: Config = {
   title: "InfraZ Docs",
@@ -21,6 +24,13 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+
+  stylesheets: [
+    {
+      href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap",
+      type: "text/css",
+    },
+  ],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -189,8 +199,20 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} InfraZ <br /> Made by humans, debugged by ducks 🦆`,
     },
     prism: {
-      theme: prismThemes.jettwaveLight,
-      darkTheme: prismThemes.dracula,
+      theme: prismInfrazLight,
+      darkTheme: prismInfrazDark,
+      magicComments: [
+        {
+          className: "theme-code-block-highlighted-line",
+          line: "highlight-next-line",
+          block: { start: "highlight-start", end: "highlight-end" },
+        },
+        {
+          className: "code-block-error-line",
+          line: "error-next-line",
+          block: { start: "error-start", end: "error-end" },
+        },
+      ],
     },
     docs: {
       sidebar: {
@@ -201,9 +223,8 @@ const config: Config = {
       id: 'github_star_mmdb_cli',
       content:
         'MMDB CLI is now available on <a target="_blank" rel="noopener noreferrer" href="https://github.com/InfraZ/mmdb-cli">GitHub</a>! ⭐️',
-      backgroundColor: '#c6eaff',
-      textColor: '#000000',
-      isCloseable: false,  
+      // Colors: src/css/custom.css (--infraz-brand, --infraz-brand-text)
+      isCloseable: false,
     },
     algolia: {
       appId: 'BOKDMTV4KZ',

@@ -4,27 +4,132 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* InfraZ brand — matches announcement bar (#c6eaff) */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --infraz-brand: #c6eaff;
+  --infraz-brand-text: #000000;
+  --infraz-brand-rgb: 198, 234, 255;
+
+  /* Darker blues for readable links and buttons on light backgrounds */
+  --ifm-color-primary: #1e7fa8;
+  --ifm-color-primary-dark: #1a7196;
+  --ifm-color-primary-darker: #186b8e;
+  --ifm-color-primary-darkest: #145872;
+  --ifm-color-primary-light: #3d9bc0;
+  --ifm-color-primary-lighter: #5aabc9;
+  --ifm-color-primary-lightest: #9ccfea;
+
+  --ifm-font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular,
+    "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --ifm-code-font-size: 0.875em;
+  --ifm-code-background: rgba(var(--infraz-brand-rgb), 0.2);
+  --ifm-code-border-radius: 0.35rem;
+  --ifm-code-padding-vertical: 0.12rem;
+  --ifm-code-padding-horizontal: 0.4rem;
+  --ifm-pre-background: #f4f9fc;
+  --ifm-pre-color: #1e2a3a;
+  --ifm-pre-border-radius: 0.5rem;
+  --ifm-pre-line-height: 1.65;
+  --ifm-pre-padding: 1.1rem 1.2rem;
+  --prism-font-size: 0.875rem;
+  --docusaurus-highlighted-code-line-bg: rgba(var(--infraz-brand-rgb), 0.45);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: var(--infraz-brand);
+  --ifm-color-primary-dark: #a8daf5;
+  --ifm-color-primary-darker: #96d0f2;
+  --ifm-color-primary-darkest: #72bfe8;
+  --ifm-color-primary-light: #d2efff;
+  --ifm-color-primary-lighter: #def4ff;
+  --ifm-color-primary-lightest: #ecf9ff;
+
+  --ifm-code-background: rgba(var(--infraz-brand-rgb), 0.14);
+  --ifm-pre-background: #0c1521;
+  --ifm-pre-color: #dce8f5;
+  --docusaurus-highlighted-code-line-bg: rgba(var(--infraz-brand-rgb), 0.22);
+}
+
+/* Inline `code` */
+:not(pre) > code {
+  border: 1px solid rgba(var(--infraz-brand-rgb), 0.35);
+  vertical-align: baseline;
+}
+
+/* Fenced code blocks */
+.theme-code-block {
+  margin-bottom: 1.25rem;
+  border-radius: var(--ifm-pre-border-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .theme-code-block {
+  border-color: rgba(var(--infraz-brand-rgb), 0.18);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.theme-code-block pre {
+  margin: 0;
+}
+
+pre.prism-code {
+  font-size: var(--prism-font-size);
+  line-height: var(--ifm-pre-line-height);
+  tab-size: 2;
+}
+
+/* Line highlight (// highlight-next-line, highlight-start/end) */
+.theme-code-block-highlighted-line {
+  box-shadow: inset 3px 0 0 0 var(--ifm-color-primary);
+}
+
+.code-block-error-line {
+  box-shadow: inset 3px 0 0 0 #e5534b;
+  background-color: rgba(229, 83, 75, 0.12) !important;
+}
+
+/* Line numbers */
+.prism-code .token-line.theme-code-block-highlighted-line,
+.prism-code .token-line.code-block-error-line {
+  margin: 0 -1.2rem;
+  padding: 0 1.2rem;
+}
+
+.theme-code-block:hover .clean-btn {
+  opacity: 1;
+}
+
+/* Horizontal scroll for long commands */
+pre.prism-code {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--infraz-brand-rgb), 0.45) transparent;
+}
+
+pre.prism-code::-webkit-scrollbar {
+  height: 6px;
+}
+
+pre.prism-code::-webkit-scrollbar-thumb {
+  background: rgba(var(--infraz-brand-rgb), 0.45);
+  border-radius: 3px;
+}
+
+/* Announcement bar uses themeConfig content only; colors come from brand tokens */
+div[class*='announcementBar'] {
+  background-color: var(--infraz-brand) !important;
+  color: var(--infraz-brand-text) !important;
+}
+
+div[class*='announcementBar'] a {
+  color: var(--infraz-brand-text);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+div[class*='announcementBar'] a:hover {
+  color: var(--infraz-brand-text);
+  opacity: 0.85;
 }
