@@ -29,3 +29,19 @@ capability:
 dataset:
   label: dataset
   permalink: /dataset
+
+guides:
+  label: Guides
+  permalink: /guides
+
+generate:
+  label: Generate
+  permalink: /generate
+
+update:
+  label: Update
+  permalink: /update
+
+jsonpath:
+  label: JSONPath
+  permalink: /jsonpath
