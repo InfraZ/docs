@@ -168,6 +168,15 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: "Legal",
+          items: [
+            {
+              label: "Privacy Policy",
+              href: "https://infraz.io/privacy-policy",
+            },
+          ],
+        },
       ],
       logo: {
         alt: 'InfraZ Logo',
@@ -195,6 +204,14 @@ const config: Config = {
       backgroundColor: '#c6eaff',
       textColor: '#000000',
       isCloseable: false,  
+    },
+    algolia: {
+      appId: 'BOKDMTV4KZ',
+      apiKey: 'd1a9073adfab2e6c3657f244b167b90f',
+      indexName: 'infraz-docs',
+      contextualSearch: true,
+      searchPagePath: 'search',
+      insights: false,
     },
   } satisfies Preset.ThemeConfig,
 };

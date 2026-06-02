@@ -45,6 +45,9 @@ function CookieBanner() {
       /* best-effort persistence */
     }
     updateConsent(value);
+    // Notify same-tab listeners (e.g. Algolia Insights) — the native storage
+    // event only fires in other tabs, so we dispatch our own.
+    window.dispatchEvent(new CustomEvent("consent-updated", { detail: { consent: value } }));
     setVisible(false);
   };
 
@@ -55,12 +58,11 @@ function CookieBanner() {
   return (
     <div className={styles.banner} role="dialog" aria-live="polite" aria-label="Cookie consent">
       <p className={styles.text}>
-        We use cookies for analytics to understand how the docs are used. You
-        can accept or decline — declining keeps only essential cookies.{" "}
-        {/* <a href="https://infraz.io/privacy" target="_blank" rel="noopener noreferrer">
+        We use cookies for analytics and to improve search results. You can
+        accept or decline — declining keeps only essential cookies.{" "}
+        <a href="https://infraz.io/privacy-policy" target="_blank" rel="noopener noreferrer">
           Learn more
-        </a> */}
-        .
+        </a>
       </p>
       <div className={styles.actions}>
         <button
